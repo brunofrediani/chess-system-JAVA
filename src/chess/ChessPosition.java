@@ -8,7 +8,7 @@ public class ChessPosition {
 	
 		public ChessPosition(char column, int row) {
 			if (column < 'a' || column > 'h' || row < 1 || row > 8) {
-	
+	// pode usar comparador de > ou < para letras do alfabeto também (sendo A a primeira e Z a última)
 				throw new ChessException("Erro instanciando ChessPosition: Os valores válidos devem estar entre a1 e h8 ");
 			}
 			this.row = row;
