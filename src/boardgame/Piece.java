@@ -23,7 +23,7 @@ public abstract class Piece {
 	// classe concreta utilizando uma classe abstrata (possibleMoves) é conhecido como hook
 	}
 	
-	public boolean isThereAnyPossibleMove() {   //concreto dependendo de abstrato assim como possibleMove
+	public boolean isThereAnyPossibleMove() {   //concreto dependendo de classe abstrato assim como possibleMove
 		boolean [][] mat = possibleMoves();
 			for (int i = 0 ; i < mat.length; i++) {
 				for (int j =0 ; j < mat.length ; j++) {
