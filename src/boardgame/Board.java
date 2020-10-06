@@ -33,7 +33,7 @@ public class Board {
 
 	public Piece piece(Position position) {
 		if (!positionExists(position)) {
-			throw new BoardException("Posição não existe no tabuleiro");
+			throw new BoardException("Posicao nao existe no tabuleiro");
 		}
 		return pieces[position.getRow()][position.getColumn()];
 	}
@@ -60,7 +60,7 @@ public class Board {
 		}
 
 	private boolean positionExists(int row, int column) {
-		return row >= 0 && row < rows && column >= 0 && column <= columns;
+		return row >= 0 && row < rows && column >= 0 && column < columns;
 	}
 
 	public boolean positionExists(Position position) {
