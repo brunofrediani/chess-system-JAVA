@@ -11,6 +11,7 @@ import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
 
+
 public class UI {
 
 	// https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
@@ -50,7 +51,7 @@ public class UI {
 			int row = Integer.parseInt(s.substring(1));
 			return new ChessPosition(column, row);
 		} catch (RuntimeException e) {
-			throw new InputMismatchException("Posição válida é de A1 a H8");
+			throw new InputMismatchException("Posicao valida de A1 a H8");
 		}
 	}
 
@@ -60,8 +61,19 @@ public class UI {
 		printCapturedPieces(captured);
 		System.out.println();
 		System.out.println("Turno: " + chessMatch.getTurn());
+		if(!chessMatch.getCheckMate()) {
 		System.out.println("Aguardando jogador: " + chessMatch.getCurrentPlayer());
+		if (chessMatch.getCheck()) {
+			System.out.println("CHECK!");
+	    	}
+		}
+		else {
+			System.out.println("CHECKMATE!");
+			System.out.println("Winner: " + chessMatch.getCurrentPlayer() );
+			
+		}
 	}
+
 
 	// colocando false ele imprime o tabuleiro sem o possible moves com background
 	// azul
@@ -109,7 +121,7 @@ public class UI {
 		List<ChessPiece> white = captured.stream().filter(x -> x.getColor() == Color.WHITE).collect(Collectors.toList());
 		List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK).collect(Collectors.toList());
 		System.out.println("Captured Pieces:");
-		
+
 		System.out.print("White: ");
 		System.out.print(ANSI_WHITE);
 		System.out.println(Arrays.toString(white.toArray())); //maneira padrão p imprimir array
@@ -122,3 +134,4 @@ public class UI {
 		//imprimir as peças definindo a cor
 	}	
 }
+
