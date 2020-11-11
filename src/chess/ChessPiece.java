@@ -7,6 +7,7 @@ import boardgame.Position;
 public abstract class ChessPiece extends Piece {
 	// classe virou abstrata por causa dos metodos abstratos em Piece
 	private Color color;
+	private int countMove;
 
 	public ChessPiece(Board board, Color color) {
 		super(board);
@@ -16,7 +17,15 @@ public abstract class ChessPiece extends Piece {
 	public Color getColor() {
 		return color;
 	}
-
+	
+	public void increaseMoveCount() {
+		countMove ++;
+	}
+	
+	public void decreaseMoveCount() {
+		countMove --;
+	}
+	
 	
 	public ChessPosition getChessPosition() {
 		return ChessPosition.fromPosition(position);
